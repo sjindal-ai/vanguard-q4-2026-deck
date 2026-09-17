@@ -1,0 +1,1292 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Vanguard Q4 2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#080808;
+    --surface-1:#121212;
+    --surface-2:#171717;
+    --surface-3:#1e1e1e;
+    --border:#2a2a2a;
+    --border-soft:#202020;
+    --text:#ececec;
+    --soft:#a3a3a3;
+    --dim:#6b6b6b;
+    --accent:#2dd4bf;
+    --accent-soft:rgba(45,212,191,.14);
+    --accent-line:rgba(45,212,191,.35);
+    --amber:#fbbf24;
+    --amber-soft:rgba(251,191,36,.14);
+    --green:#7fb88f;
+    --green-soft:rgba(127,184,143,.12);
+    --red:#f87171;
+    --red-soft:rgba(248,113,113,.14);
+    --blue:#93c5fd;
+    --blue-soft:rgba(147,197,253,.14);
+    --purple:#a78bfa;
+    --purple-soft:rgba(167,139,250,.14);
+    --font: "DM Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+  }
+
+  *{box-sizing:border-box;}
+  html,body{height:100%;}
+  body{
+    margin:0;
+    background:
+      radial-gradient(circle 900px at 12% 8%, rgba(45,212,191,.13), transparent 60%),
+      radial-gradient(circle 1000px at 22% 78%, rgba(251,191,36,.10), transparent 62%),
+      var(--bg);
+    color:var(--text);
+    font-family:var(--font);
+    overflow:hidden;
+    -webkit-font-smoothing:antialiased;
+  }
+  h1,h2,h3,h4,p{margin:0;text-wrap:balance;}
+  ::selection{background:var(--accent-soft);color:var(--text);}
+
+  .deck{
+    position:relative;
+    width:100vw;
+    height:100dvh;
+    display:flex;
+    flex-direction:column;
+  }
+
+  /* chrome */
+  .topbar{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding:18px 32px 0 32px;
+    flex:0 0 auto;
+  }
+  .wordmark{
+    display:flex;
+    align-items:baseline;
+    gap:8px;
+    font-size:.78rem;
+    letter-spacing:.14em;
+    text-transform:uppercase;
+    color:var(--dim);
+  }
+  .wordmark b{
+    color:var(--soft);
+    font-weight:600;
+    letter-spacing:.14em;
+  }
+  .progress-track{
+    margin:12px 32px 0 32px;
+    height:2px;
+    background:var(--border-soft);
+    flex:0 0 auto;
+    border-radius:2px;
+    overflow:hidden;
+  }
+  .progress-fill{
+    height:100%;
+    background:var(--accent);
+    width:6.25%;
+    transition:width .35s ease;
+  }
+
+  .slides{
+    position:relative;
+    flex:1 1 auto;
+    min-height:0;
+  }
+  .slide{
+    position:absolute;
+    inset:0;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    padding:0 clamp(28px,6vw,88px);
+    opacity:0;
+    transform:translateY(10px);
+    pointer-events:none;
+    transition:opacity .38s ease, transform .38s ease;
+  }
+  .slide.active{
+    opacity:1;
+    transform:translateY(0);
+    pointer-events:auto;
+  }
+  .slide-inner{
+    width:100%;
+    max-width:1180px;
+    margin:0 auto;
+    max-height:100%;
+    overflow-y:auto;
+    padding:10px 2px 24px 2px;
+    scrollbar-width:thin;
+    scrollbar-color:var(--border) transparent;
+  }
+
+  .eyebrow{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    font-size:.76rem;
+    letter-spacing:.16em;
+    text-transform:uppercase;
+    color:var(--accent);
+    font-weight:600;
+    margin-bottom:14px;
+  }
+  .eyebrow .tie-back{
+    color:var(--dim);
+    font-weight:500;
+    letter-spacing:.06em;
+    text-transform:none;
+    font-size:.82rem;
+  }
+  .eyebrow::before{
+    content:"";
+    width:7px;height:7px;border-radius:50%;
+    background:var(--accent);
+    box-shadow:0 0 0 3px var(--accent-soft);
+  }
+
+  h1.slide-title{
+    font-size:clamp(1.8rem,3.4vw,2.7rem);
+    font-weight:600;
+    line-height:1.14;
+    letter-spacing:-.01em;
+    max-width:20ch;
+    margin-bottom:6px;
+  }
+  .slide-sub{
+    color:var(--soft);
+    font-size:1.02rem;
+    max-width:56ch;
+    line-height:1.5;
+    margin-bottom:28px;
+  }
+
+  /* bottom bar */
+  .bottombar{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding:14px 32px 22px 32px;
+    flex:0 0 auto;
+  }
+  .section-label{
+    font-size:.82rem;
+    color:var(--dim);
+    letter-spacing:.02em;
+  }
+  .section-label b{color:var(--soft);font-weight:600;}
+  .navcluster{display:flex;align-items:center;gap:14px;}
+  .counter{
+    font-variant-numeric:tabular-nums;
+    color:var(--dim);
+    font-size:.82rem;
+    min-width:52px;
+    text-align:center;
+  }
+  .navbtn{
+    width:36px;height:36px;
+    border-radius:50%;
+    border:1px solid var(--border);
+    background:var(--surface-1);
+    color:var(--soft);
+    display:flex;align-items:center;justify-content:center;
+    cursor:pointer;
+    font-size:1rem;
+    transition:border-color .15s ease, color .15s ease, background .15s ease;
+  }
+  .navbtn:hover{border-color:var(--accent-line);color:var(--text);}
+  .navbtn:focus-visible{outline:2px solid var(--accent);outline-offset:2px;}
+  .navbtn:disabled{opacity:.28;cursor:default;}
+
+  /* ============ shared components ============ */
+
+  .grid{display:grid;gap:16px;}
+  .cols-2{grid-template-columns:repeat(2,1fr);}
+  .cols-3{grid-template-columns:repeat(3,1fr);}
+  .cols-4{grid-template-columns:repeat(4,1fr);}
+
+  .stat-tile{
+    background:var(--surface-1);
+    border:1px solid var(--border-soft);
+    border-radius:14px;
+    padding:20px 20px 18px;
+    display:flex;
+    flex-direction:column;
+    gap:8px;
+  }
+  .stat-tile.highlight{border-color:var(--accent-line);background:linear-gradient(160deg,var(--accent-soft),var(--surface-1) 60%);}
+  .stat-label{
+    font-size:.72rem;
+    letter-spacing:.1em;
+    text-transform:uppercase;
+    color:var(--dim);
+  }
+  .stat-value{
+    font-size:clamp(1.5rem,2.4vw,2.15rem);
+    font-weight:600;
+    font-variant-numeric:tabular-nums;
+    letter-spacing:-.01em;
+  }
+  .stat-value .unit{font-size:.55em;color:var(--soft);font-weight:500;margin-left:2px;}
+  .stat-note{font-size:.84rem;color:var(--soft);line-height:1.45;}
+  .stat-note.dim{color:var(--dim);}
+
+  .theme-card{
+    background:var(--surface-1);
+    border:1px solid var(--border-soft);
+    border-radius:14px;
+    padding:20px;
+    display:flex;
+    flex-direction:column;
+    gap:10px;
+  }
+  .theme-num{
+    width:26px;height:26px;
+    border-radius:7px;
+    background:var(--accent-soft);
+    color:var(--accent);
+    font-size:.8rem;font-weight:700;
+    display:flex;align-items:center;justify-content:center;
+    font-variant-numeric:tabular-nums;
+  }
+  .theme-card h3{font-size:1.05rem;font-weight:600;}
+  .theme-sub{font-size:.78rem;color:var(--dim);letter-spacing:.01em;}
+  .theme-q{font-size:.88rem;color:var(--soft);font-style:italic;line-height:1.45;margin-top:2px;}
+  .theme-weight{font-size:.72rem;font-weight:600;letter-spacing:.03em;margin-top:auto;padding-top:8px;border-top:1px solid var(--border-soft);}
+  .theme-card.weight-heavy{border-color:var(--accent-line);background:linear-gradient(160deg,var(--accent-soft),var(--surface-1) 65%);}
+  .theme-card.weight-heavy .theme-weight{color:var(--accent);}
+  .theme-card.weight-light .theme-weight{color:var(--dim);}
+  .theme-map{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:14px;margin-top:10px;}
+  .theme-map .theme-card{min-height:0;padding:16px 16px 14px;}
+  .theme-map h3{font-size:.92rem;margin:0 0 2px;color:var(--accent);}
+  .theme-map ul{list-style:none;margin:8px 0 0;padding:0;display:flex;flex-direction:column;gap:8px;}
+  .theme-map li{font-size:.86rem;color:var(--text);line-height:1.35;padding-left:12px;position:relative;}
+  .theme-map li::before{content:"";position:absolute;left:0;top:.55em;width:5px;height:5px;border-radius:50%;background:var(--accent);}
+  .theme-map li .note{display:block;font-size:.72rem;color:var(--dim);font-weight:500;margin-top:2px;}
+  @media (max-width: 1100px){
+    .theme-map{grid-template-columns:repeat(2,minmax(0,1fr));}
+  }
+
+  .pill{
+    display:inline-flex;
+    align-items:center;
+    gap:6px;
+    padding:3px 10px;
+    border-radius:999px;
+    font-size:.7rem;
+    font-weight:600;
+    letter-spacing:.04em;
+    text-transform:uppercase;
+    white-space:nowrap;
+  }
+  .pill::before{content:"";width:6px;height:6px;border-radius:50%;}
+  .pill-committed{background:var(--green-soft);color:var(--green);}
+  .pill-committed::before{background:var(--green);}
+  .pill-proposed{background:var(--amber-soft);color:var(--amber);}
+  .pill-proposed::before{background:var(--amber);}
+  .pill-candidate{background:var(--blue-soft);color:var(--blue);}
+  .pill-candidate::before{background:var(--blue);}
+  .pill-exploration{background:var(--purple-soft);color:var(--purple);}
+  .pill-exploration::before{background:var(--purple);}
+  .pill-locked{background:var(--accent-soft);color:var(--accent);}
+  .pill-locked::before{background:var(--accent);}
+
+  .init-card{
+    background:var(--surface-1);
+    border:1px solid var(--border-soft);
+    border-radius:14px;
+    padding:18px 20px;
+    display:flex;
+    flex-direction:column;
+    gap:10px;
+  }
+  .init-head{display:flex;align-items:flex-start;justify-content:space-between;gap:12px;}
+  .init-head h3{font-size:1rem;font-weight:600;line-height:1.3;}
+  .init-what{font-size:.87rem;color:var(--soft);line-height:1.5;}
+  .init-what b{color:var(--text);font-weight:600;}
+  .init-foot{
+    display:flex;
+    flex-wrap:wrap;
+    gap:8px 18px;
+    padding-top:8px;
+    border-top:1px solid var(--border-soft);
+    font-size:.76rem;
+    color:var(--dim);
+  }
+  .init-foot span b{color:var(--soft);font-weight:600;}
+
+  .stack{display:flex;flex-direction:column;gap:12px;}
+
+  table.plain{
+    width:100%;
+    border-collapse:collapse;
+    font-size:.9rem;
+  }
+  table.plain th{
+    text-align:left;
+    font-size:.72rem;
+    letter-spacing:.08em;
+    text-transform:uppercase;
+    color:var(--dim);
+    padding:0 14px 10px 0;
+    border-bottom:1px solid var(--border);
+    font-weight:600;
+  }
+  table.plain td{
+    padding:12px 14px 12px 0;
+    border-bottom:1px solid var(--border-soft);
+    color:var(--soft);
+    vertical-align:top;
+  }
+  table.plain td.strong{color:var(--text);font-weight:600;}
+  table.plain tr:last-child td{border-bottom:none;}
+
+  .initiatives-stack{margin-top:.5rem;}
+  .table-wrap{overflow-x:auto;}
+  .table-card{
+    border-radius:10px;
+    border:1px solid #1c1c1c;
+    background:#0b0b0b;
+    overflow:hidden;
+  }
+  table.init-table{
+    table-layout:fixed;
+    width:100%;
+    min-width:760px;
+    border-collapse:collapse;
+    font-size:.88rem;
+    line-height:1.4;
+  }
+  table.init-table col.col-num{width:5%;}
+  table.init-table col.col-name{width:20%;}
+  table.init-table col.col-what{width:38%;}
+  table.init-table col.col-metric{width:21%;}
+  table.init-table col.col-tail{width:16%;}
+  table.init-table th{
+    background:var(--accent-soft);
+    border-bottom:2px solid var(--accent-line);
+    font-weight:600;
+    font-size:.7rem;
+    letter-spacing:.04em;
+    text-transform:uppercase;
+    text-align:left;
+    padding:10px 12px;
+    color:var(--soft);
+  }
+  table.init-table td{
+    padding:10px 12px;
+    border-bottom:1px solid #161616;
+    vertical-align:top;
+    color:var(--soft);
+  }
+  table.init-table tbody tr:last-child td{border-bottom:none;}
+  table.init-table tbody tr:nth-child(2n) td{background:rgba(255,255,255,.02);}
+  table.init-table tbody tr:hover td{background:var(--accent-soft);}
+  table.init-table .num-col{color:var(--dim);font-variant-numeric:tabular-nums;text-align:center;}
+  table.init-table td:nth-child(2){border-left:3px solid var(--accent-line);color:var(--text);font-weight:600;}
+  table.init-table .metric-col{color:var(--green);font-weight:500;}
+  table.init-table .est-col{color:var(--soft);}
+
+  .quote-block{
+    font-size:clamp(1.3rem,2.6vw,1.85rem);
+    font-weight:500;
+    line-height:1.42;
+    max-width:34ch;
+    letter-spacing:-.005em;
+  }
+  .quote-block em{color:var(--accent);font-style:normal;}
+
+  .badge-row{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:18px;}
+  .badge{
+    font-size:.76rem;
+    color:var(--soft);
+    border:1px solid var(--border);
+    border-radius:999px;
+    padding:5px 12px;
+  }
+
+  .timeline-wrap{overflow-x:auto;}
+  table.tl{width:100%;border-collapse:collapse;min-width:700px;}
+  table.tl th{
+    font-size:.7rem;
+    letter-spacing:.07em;
+    text-transform:uppercase;
+    color:var(--dim);
+    text-align:left;
+    padding:0 8px 12px 0;
+    font-weight:600;
+  }
+  table.tl th.month{text-align:center;}
+  table.tl td{
+    border-top:1px solid var(--border-soft);
+    padding:14px 8px;
+    font-size:.86rem;
+    color:var(--text);
+  }
+  table.tl td.name{color:var(--soft);}
+  .tl-cell{
+    height:22px;
+    border-radius:5px;
+    background:repeating-linear-gradient(135deg, var(--surface-2) 0 6px, var(--surface-1) 6px 12px);
+    border:1px dashed var(--border);
+  }
+
+  .two-col{display:grid;grid-template-columns:1fr 1fr;gap:32px;}
+  .col-head{
+    font-size:.78rem;
+    letter-spacing:.1em;
+    text-transform:uppercase;
+    color:var(--soft);
+    font-weight:600;
+    margin-bottom:12px;
+    padding-bottom:8px;
+    border-bottom:1px solid var(--border);
+  }
+  ul.plain-list{margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:10px;}
+  ul.plain-list li{
+    font-size:.86rem;
+    color:var(--soft);
+    line-height:1.5;
+    padding-left:14px;
+    position:relative;
+  }
+  ul.plain-list li::before{
+    content:"";
+    position:absolute;left:0;top:.55em;
+    width:5px;height:5px;border-radius:50%;
+    background:var(--dim);
+  }
+  ul.plain-list li b{color:var(--text);font-weight:600;}
+
+  /* title & closing */
+  .cover{
+    display:flex;
+    flex-direction:column;
+    align-items:flex-start;
+    justify-content:center;
+    height:100%;
+    position:relative;
+  }
+  .cover-glow{
+    position:absolute;
+    top:0;
+    left:0;
+    width:600px;
+    height:600px;
+    background:radial-gradient(circle 260px at center, rgba(45,212,191,.15) 0%, rgba(45,212,191,.05) 55%, rgba(45,212,191,0) 100%);
+    pointer-events:none;
+    z-index:0;
+  }
+  .cover-eyebrow{
+    font-size:.82rem;
+    letter-spacing:.18em;
+    text-transform:uppercase;
+    color:var(--dim);
+    margin-bottom:22px;
+  }
+  .cover h1{
+    font-size:clamp(3rem,8vw,5.4rem);
+    font-weight:700;
+    letter-spacing:-.02em;
+    line-height:1;
+  }
+  .cover h1 span{color:var(--accent);}
+  .cover .sub{
+    font-size:clamp(1.1rem,2vw,1.5rem);
+    color:var(--soft);
+    margin-top:14px;
+    font-weight:500;
+  }
+  .cover .status-line{
+    margin-top:26px;
+    font-size:.96rem;
+    color:var(--dim);
+    font-style:italic;
+  }
+  .cover .meta{
+    margin-top:36px;
+    font-size:.82rem;
+    color:var(--dim);
+    display:flex;gap:18px;
+  }
+
+  .closing{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    height:100%;
+    text-align:center;
+  }
+  .closing .mega{
+    font-size:clamp(3rem,8vw,5.4rem);
+    font-weight:700;
+    letter-spacing:-.02em;
+    line-height:1;
+    margin-top:20px;
+  }
+  .closing .meta{margin-top:14px;font-size:.95rem;color:var(--soft);}
+  .closing .wish{
+    margin-top:34px;
+    max-width:30ch;
+    font-size:clamp(1.05rem,1.8vw,1.3rem);
+    font-weight:400;
+    font-style:italic;
+    color:var(--soft);
+    line-height:1.55;
+  }
+
+  .team-sections{display:flex;flex-direction:column;gap:22px;margin-top:6px;}
+  .team-sections.platform-row{display:grid;grid-template-columns:1fr 1fr;gap:20px 32px;}
+  .team-section h2{font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;color:var(--accent);font-weight:600;margin-bottom:10px;padding-bottom:6px;border-bottom:1px solid var(--border-soft);}
+  .team-grid{display:flex;flex-wrap:wrap;gap:18px;}
+  .team-grid.one-line{flex-wrap:nowrap;}
+  .person{display:flex;flex-direction:column;align-items:center;text-align:center;width:100px;}
+  .avatar-wrap{position:relative;line-height:0;margin-bottom:8px;}
+  .person .avatar{
+    width:72px;height:72px;border-radius:50%;
+    object-fit:cover;display:block;
+    background:#1a1a1a;
+    border:2px solid rgba(45,212,191,.3);
+    margin-bottom:8px;
+  }
+  .person .avatar-initials{
+    width:72px;height:72px;border-radius:50%;
+    display:flex;align-items:center;justify-content:center;
+    background:linear-gradient(160deg,var(--accent-soft),var(--surface-2));
+    border:2px solid rgba(45,212,191,.3);
+    margin-bottom:8px;
+    color:var(--accent);
+    font-size:1.05rem;font-weight:700;
+    letter-spacing:.02em;
+  }
+  .avatar-wrap .avatar{margin-bottom:0;}
+  .person.has-milestone .avatar{border-color:rgba(45,212,191,.55);}
+  .avatar-wrap .milestone{
+    position:absolute;bottom:0;left:50%;transform:translate(-50%,42%);
+    padding:2px 7px;border-radius:999px;
+    background:linear-gradient(180deg,#141414,#0a0a0a);
+    border:1.5px solid rgba(45,212,191,.55);
+    color:var(--accent);font-size:.56rem;font-weight:600;
+    white-space:nowrap;
+  }
+  .person.has-milestone{padding-top:6px;}
+  .person .name{font-size:.84rem;font-weight:500;color:var(--text);line-height:1.25;}
+  .person .role{font-size:.7rem;color:var(--dim);margin-top:2px;}
+
+  .metric-hero{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:8px;}
+  .metric-card{padding:18px 20px;border-radius:10px;background:linear-gradient(165deg,var(--accent-soft),transparent 60%);border:1px solid var(--accent-line);display:flex;flex-direction:column;gap:4px;}
+  .metric-card .n{font-size:clamp(1.5rem,2.4vw,2.1rem);font-weight:600;color:var(--text);letter-spacing:-.01em;}
+  .metric-card .l{font-size:.8rem;color:var(--soft);}
+  .metric-card .delta{font-size:.78rem;font-weight:600;color:var(--accent);}
+  .metric-card .delta.neutral{color:var(--dim);font-weight:500;}
+
+  .wl-columns{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-top:14px;align-items:stretch;}
+  .wl-column{display:flex;flex-direction:column;justify-content:center;gap:16px;border-radius:12px;border:1px solid #1c1c1c;background:#0b0b0b;padding:24px 26px;}
+  .wl-col-label{font-size:.76rem;letter-spacing:.09em;text-transform:uppercase;font-weight:700;margin-bottom:4px;padding-bottom:10px;border-bottom:1px solid var(--border-soft);}
+  .wl-col-label.wins{color:var(--accent);}
+  .wl-col-label.learnings{color:var(--amber);}
+  .wl-col-label.opportunity{color:var(--blue);}
+  .content-card{padding:18px 20px;border-radius:8px;background:#111;border:1px solid #1c1c1c;}
+  .content-card.highlight{background:linear-gradient(165deg,var(--accent-soft),transparent 60%);border-color:var(--accent-line);}
+  .content-card .card-title{font-size:1.04rem;color:var(--text);font-weight:600;margin-bottom:5px;}
+  .content-card .card-body{font-size:.94rem;color:var(--soft);line-height:1.52;}
+  .wl-opportunity{margin-top:14px;padding-top:14px;border-top:1px solid var(--border);}
+
+  .shipped-stack{display:flex;flex-direction:column;gap:14px;margin-top:10px;}
+  .shipped-hero{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;}
+  .metric-card.compact{padding:12px 16px;gap:2px;}
+  .metric-card.compact .n{font-size:clamp(1.3rem,2vw,1.8rem);}
+  .shipped-partners{font-size:.76rem;color:var(--dim);line-height:1.4;}
+  .shipped-groups{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;}
+  .shipped-group{border-radius:10px;border:1px solid #1c1c1c;background:#0b0b0b;padding:14px 16px;display:flex;flex-direction:column;gap:9px;}
+  .shipped-group h2{font-size:.72rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;margin:0;padding-bottom:9px;border-bottom:1px solid var(--border-soft);}
+  .shipped-group.acq h2{color:var(--accent);}
+  .shipped-group.eng h2{color:var(--blue);}
+  .shipped-group.stretch h2{color:var(--amber);}
+  .shipped-items{display:flex;flex-direction:column;gap:8px;}
+  .shipped-item{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:6px 8px;align-items:center;font-size:.94rem;}
+  .shipped-item .name{color:var(--text);font-weight:400;min-width:0;}
+  .chip{flex-shrink:0;font-size:.62rem;font-weight:600;letter-spacing:.04em;text-transform:uppercase;padding:.18rem .5rem;border-radius:999px;border:1px solid #2a2a2a;white-space:nowrap;display:inline-block;justify-self:end;}
+  .chip.shipped{background:#2dd4bf1a;color:var(--accent);border-color:#2dd4bf40;}
+  .chip.win{background:#4ade8014;color:#86efac;border-color:#4ade8038;}
+  .chip.watch{background:#a3a3a314;color:var(--soft);border-color:#2a2a2a;}
+  .chip.block{background:#f871710f;color:#fca5a5;border-color:#f871712e;}
+  .chip.dev{background:#fbbf2414;color:#fcd34d;border-color:#fbbf2438;}
+
+  @media (max-width: 880px){
+    .shipped-hero,.shipped-groups{grid-template-columns:1fr;}
+    .cols-2,.cols-3,.cols-4{grid-template-columns:1fr;}
+    .two-col{grid-template-columns:1fr;}
+  }
+
+  @media (prefers-reduced-motion: reduce){
+    .slide, .progress-fill{transition:none;}
+  }
+</style>
+</head>
+<body>
+<div class="deck">
+  <div class="topbar">
+    <div class="wordmark">Vanguard <b>&middot; Q4 2026 Roadmap</b></div>
+    <div class="wordmark" id="section-tag">Cover</div>
+  </div>
+  <div class="progress-track"><div class="progress-fill" id="progress"></div></div>
+
+  <div class="slides" id="slides">
+
+    <!-- 1 -->
+    <section class="slide" data-section="Cover">
+      <div class="cover-glow"></div>
+      <div class="slide-inner">
+        <div class="cover">
+          <div class="cover-eyebrow">GoDaddy App Squad</div>
+          <h1>Vanguard <span>&#128737;</span></h1>
+          <div class="sub">2026 Q4 Roadmap</div>
+          <div class="meta">
+            <span>Owners: Sonali Jindal, Aradhyay Sharma</span>
+            <span>&middot;</span>
+            <span>Updated Sep 2026</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 1b -->
+    <section class="slide" data-section="Team">
+      <div class="slide-inner">
+        <div class="eyebrow">GoDaddy App Squad</div>
+        <h1 class="slide-title">Vanguard</h1>
+        <div class="team-sections">
+          <div class="team-section">
+            <div class="team-grid one-line">
+              <div class="person"><img class="avatar" src="/photos/darren-cree.jpg" alt="Darren Cree"><span class="name">Darren Cree</span><span class="role">EM</span></div>
+              <div class="person"><img class="avatar" src="/photos/kaveen-srikanthan.jpg" alt="Kaveen Srikanthan"><span class="name">Kaveen Srikanthan</span><span class="role">UX</span></div>
+              <div class="person"><img class="avatar" src="/photos/sonali-jindal.jpg" alt="Sonali Jindal"><span class="name">Sonali Jindal</span><span class="role">PM</span></div>
+              <div class="person"><img class="avatar" src="/photos/aradhyay-sharma.jpg" alt="Aradhyay Sharma"><span class="name">Aradhyay Sharma</span><span class="role">PM</span></div>
+            </div>
+          </div>
+          <div class="team-sections platform-row">
+            <div class="team-section">
+              <h2>iOS</h2>
+              <div class="team-grid">
+                <div class="person"><img class="avatar" src="/photos/hugo-prinsloo.jpg" alt="Hugo Prinsloo"><span class="name">Hugo Prinsloo</span></div>
+                <div class="person"><img class="avatar" src="/photos/ivan-filiipchuk.jpg" alt="Ivan Filipchuk"><span class="name">Ivan Filipchuk</span></div>
+                <div class="person"><img class="avatar" src="/photos/michael-dube.jpg" alt="Michael Dube"><span class="name">Michael Dube</span></div>
+                <div class="person"><img class="avatar" src="/photos/tarun-singh.jpg" alt="Tarun Singh"><span class="name">Tarun Singh</span></div>
+              </div>
+            </div>
+            <div class="team-section">
+              <h2>Android</h2>
+              <div class="team-grid">
+                <div class="person"><img class="avatar" src="/photos/nikitin-dmytro.jpg" alt="Dmytro Nikitin"><span class="name">Dmytro Nikitin</span></div>
+                <div class="person"><img class="avatar" src="/photos/fernando-franco.jpg" alt="Fernando Franco"><span class="name">Fernando Franco</span></div>
+                <div class="person"><img class="avatar" src="/photos/manuel-rebollo-baez.jpg" alt="Manuel Rebollo Baez"><span class="name">Manuel Rebollo Baez</span></div>
+                <div class="person"><img class="avatar" src="/photos/brad-sudz.jpg" alt="Brad Sudz"><span class="name">Brad Sudz</span></div>
+              </div>
+            </div>
+          </div>
+          <div class="team-section">
+            <h2>Services / BE</h2>
+            <div class="team-grid">
+              <div class="person"><img class="avatar" src="/photos/david-gouldby.jpg" alt="David Gouldby"><span class="name">David Gouldby</span></div>
+              <div class="person"><img class="avatar" src="/photos/lishen-ramsudh.jpg" alt="Lishen Ramsudh"><span class="name">Lishen Ramsudh</span></div>
+              <div class="person"><img class="avatar" src="/photos/nusrat-atiya.jpg" alt="Nusrat Atiya"><span class="name">Nusrat Atiya</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 2d -->
+    <section class="slide" data-section="Q3 initiatives">
+      <div class="slide-inner">
+        <div class="eyebrow">Lookback &middot; Q3 plan</div>
+        <h1 class="slide-title">Q3 initiatives</h1>
+        <div class="shipped-stack">
+          <div class="shipped-hero">
+            <div class="metric-card compact highlight">
+              <span class="n">94%</span>
+              <span class="l">Shipped or shipping in Sep</span>
+              <span class="delta">17 of 18 initiatives</span>
+            </div>
+            <div class="metric-card compact">
+              <span class="n">26</span>
+              <span class="l">Initiatives planned</span>
+            </div>
+            <div class="metric-card compact">
+              <span class="n">18</span>
+              <span class="l">Committed P0</span>
+            </div>
+            <div class="metric-card compact">
+              <span class="n">8</span>
+              <span class="l">Stretch / conditional</span>
+            </div>
+          </div>
+          <p class="shipped-partners"><strong>Partners:</strong> FoS &middot; DCC &middot; DOP &middot; SSO &middot; Braze &middot; VH</p>
+          <div class="shipped-groups">
+            <div class="shipped-group acq">
+              <h2>Acquisition (committed)</h2>
+              <div class="shipped-items">
+                <div class="shipped-item"><span class="name">FoS page banners</span><span class="chip shipped">V1 live</span></div>
+                <div class="shipped-item"><span class="name">Unified Deep Linking (iOS)</span><span class="chip shipped">Live</span></div>
+                <div class="shipped-item"><span class="name">Common header replaced with SAB + AppsFlyer banner (VH / MyP)</span><span class="chip shipped">Live</span></div>
+                <div class="shipped-item"><span class="name">DCC top-of-page banner</span><span class="chip win">Live &middot; expt won</span></div>
+                <div class="shipped-item"><span class="name">DOP app placement synergies</span><span class="chip shipped">Live</span></div>
+                <div class="shipped-item"><span class="name">Event-triggered bell</span><span class="chip shipped">Live</span></div>
+                <div class="shipped-item"><span class="name">App in Domains Mega Nav</span><span class="chip block">Loss</span></div>
+                <div class="shipped-item"><span class="name">App in all subnav</span><span class="chip shipped">Live</span></div>
+                <div class="shipped-item"><span class="name">App on mobile web &rarr; App Store / Play Store</span><span class="chip shipped">Live</span></div>
+                <div class="shipped-item"><span class="name">Cart confirmation page nudge</span><span class="chip block">Loss</span></div>
+              </div>
+            </div>
+            <div class="shipped-group eng">
+              <h2>Engagement, auth &amp; insights (committed)</h2>
+              <div class="shipped-items">
+                <div class="shipped-item"><span class="name">Passkeys</span><span class="chip dev">To ship post HBI</span></div>
+                <div class="shipped-item"><span class="name">HBI</span><span class="chip dev">To ship in Sep</span></div>
+                <div class="shipped-item"><span class="name">Homefeed latency</span><span class="chip shipped">Fixes live</span></div>
+                <div class="shipped-item"><span class="name">Analytics shelf</span><span class="chip dev">Expected live Sep 25</span></div>
+                <div class="shipped-item"><span class="name">Txn failure priority cards</span><span class="chip dev">Live before Sep end</span></div>
+                <div class="shipped-item"><span class="name">BRISC insight cards</span><span class="chip shipped">Shipped</span></div>
+                <div class="shipped-item"><span class="name">Quick Actions shelf expansion</span><span class="chip shipped">Live on iOS</span></div>
+                <div class="shipped-item"><span class="name">Authenticator in Settings</span><span class="chip dev">To ship in Q3</span></div>
+              </div>
+            </div>
+            <div class="shipped-group stretch">
+              <h2>Stretch / conditional (if capacity allows)</h2>
+              <div class="shipped-items">
+                <div class="shipped-item"><span class="name">Keywords-based search</span><span class="chip dev">Expected live Sep 25</span></div>
+                <div class="shipped-item"><span class="name">Action Sheet 2.0</span><span class="chip watch">Not sized</span></div>
+                <div class="shipped-item"><span class="name">Business Context Capture</span><span class="chip dev">BE done</span></div>
+                <div class="shipped-item"><span class="name">App Settings menu revamp</span><span class="chip watch">Not sized</span></div>
+                <div class="shipped-item"><span class="name">Feedback form on app</span><span class="chip dev">To ship in Sep</span></div>
+                <div class="shipped-item"><span class="name">SSO Profile MFA banner</span><span class="chip watch">Awaiting SSO</span></div>
+                <div class="shipped-item"><span class="name">Logged-out homepage banner</span><span class="chip watch">Awaiting FoS</span></div>
+                <div class="shipped-item"><span class="name">Onboarding journey placements</span><span class="chip watch">Discarded</span></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 2c -->
+    <section class="slide" data-section="Wins &amp; learnings">
+      <div class="slide-inner">
+        <div class="eyebrow">Lookback &middot; Q3</div>
+        <h1 class="slide-title">Wins &amp; learnings</h1>
+        <div class="wl-columns">
+          <div class="wl-column">
+            <div class="wl-col-label wins">Wins</div>
+            <div class="content-card highlight">
+              <div class="card-title">Experiment throughput, ahead of plan</div>
+              <div class="card-body">12 CCEs done vs. a target of 7 (+71%), plus 4 running and 8 queued. Same playbook the squad ran in Q2, now compounding.</div>
+            </div>
+            <div class="content-card highlight">
+              <div class="card-title">MFA success, target beaten</div>
+              <div class="card-body">&gt;50% vs. a 45% target, up from ~30% in Q2 &mdash; the clearest auth-friction win this year.</div>
+            </div>
+            <div class="content-card highlight">
+              <div class="card-title">Installs kept climbing</div>
+              <div class="card-body">199K installs in September, up from 170K in July.</div>
+            </div>
+          </div>
+          <div class="wl-column">
+            <div class="wl-col-label learnings">Learnings</div>
+            <div class="content-card">
+              <div class="card-title">Android installs were heavily undercounted</div>
+              <div class="card-body">A tracking issue on Android was undercounting installs significantly this quarter &mdash; now fixed. Real Android install volume was higher than reported early in the quarter.</div>
+            </div>
+            <div class="content-card">
+              <div class="card-title">Passkeys: room for tighter SSO &amp; Security collaboration</div>
+              <div class="card-body">Working with SSO on making Tap to Approve a success. Collaboration with SSO and Security can be tighter as we scale Passkeys.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 2 -->
+    <section class="slide" data-section="Q3 in numbers">
+      <div class="slide-inner">
+        <div class="eyebrow">Lookback &middot; Results</div>
+        <h1 class="slide-title">Q3 results in numbers</h1>
+        <p class="slide-sub">Recap tables lock at close &mdash; momentum is already clear on every headline metric.</p>
+        <div class="metric-hero">
+          <div class="metric-card">
+            <span class="n">454K</span>
+            <span class="l">Total installs, Q3 TD (Sep 15)</span>
+            <span class="delta">&uarr; from 352K in Q2 &middot; tracking to 520K EoQ target</span>
+          </div>
+          <div class="metric-card">
+            <span class="n">9%</span>
+            <span class="l">App share of GoDaddy MAU</span>
+            <span class="delta">&uarr; from 7.9% end Jun. Path to 15% EoY.</span>
+          </div>
+          <div class="metric-card">
+            <span class="n">23%</span>
+            <span class="l">D0 meaningful activation</span>
+          </div>
+        </div>
+        <div class="metric-hero" style="margin-top:16px;">
+          <div class="metric-card">
+            <span class="n">40%</span>
+            <span class="l">Homefeed CTR</span>
+            <span class="delta neutral">Initiatives yet to be shipped</span>
+          </div>
+          <div class="metric-card">
+            <span class="n">&gt;50%</span>
+            <span class="l">MFA success rate</span>
+            <span class="delta">Target 45% &mdash; met. Up from ~30% in Q2.</span>
+          </div>
+          <div class="metric-card">
+            <span class="n">12</span>
+            <span class="l">Controlled, concluded experiments</span>
+            <span class="delta">Target 7 (+71%) &mdash; met. Plus 4 running, 8 queued.</span>
+          </div>
+        </div>
+        <p class="stat-note dim" style="margin-top:14px;">App Store rating: 4.82 iOS &middot; 4.39 Android &mdash; hold or lift both.</p>
+      </div>
+    </section>
+
+    <!-- 3 -->
+    <section class="slide" data-section="Q3 UX walkthrough">
+      <div class="slide-inner">
+        <div class="closing">
+          <div class="badge">Lookback &middot; Q3</div>
+          <div class="mega">Q3 UX walkthrough</div>
+          <p class="wish">Loom to be linked here.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 5 -->
+    <section class="slide" data-section="Q4 target metrics">
+      <div class="slide-inner">
+        <div class="eyebrow">North star <span class="tie-back">&middot; ties to Focus Themes</span></div>
+        <h1 class="slide-title">Q4 target metrics</h1>
+        <p class="slide-sub">Q4 goals, most set as an uplift on where Q3 landed.</p>
+        <div class="metric-hero">
+          <div class="metric-card">
+            <span class="n">620K+50K</span>
+            <span class="l">Installs, Q4 target</span>
+            <span class="delta">&uarr; from 454K Q3 TD (Sep 15) &middot; 620K VG-owned, +50K from sources outside VG team</span>
+          </div>
+          <div class="metric-card">
+            <span class="n">27%</span>
+            <span class="l">D0 meaningful activation</span>
+            <span class="delta">+10% by EoQ on top of 23% in Q3</span>
+          </div>
+          <div class="metric-card">
+            <span class="n">45%</span>
+            <span class="l">Homefeed CTR, Q4 target</span>
+            <span class="delta neutral">On top of 40% in Q3 (results pending)</span>
+          </div>
+        </div>
+        <div class="metric-hero" style="margin-top:16px;">
+          <div class="metric-card">
+            <span class="n">5</span>
+            <span class="l">CCEs by EoQ</span>
+          </div>
+          <div class="metric-card">
+            <span class="n">4.0</span>
+            <span class="l">Weekly avg. App Store &amp; Play Store rating</span>
+            <span class="delta">Q4 target &middot; by EoQ</span>
+          </div>
+          <div class="metric-card">
+            <span class="n">TBD</span>
+            <span class="l">Auth KR &middot; Passkeys enrollment rate</span>
+            <span class="delta neutral">Target TBD &mdash; establishing baseline this quarter</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 6 -->
+    <section class="slide" data-section="Q4 work by theme">
+      <div class="slide-inner" style="max-width:1480px;">
+        <div class="eyebrow">Q4 2026 Plan</div>
+        <h1 class="slide-title">Work split by theme</h1>
+        <p class="slide-sub">One theme, its initiatives. Stretch is on the last slide.</p>
+        <div class="theme-map">
+          <div class="theme-card">
+            <h3>Auth</h3>
+            <ul>
+              <li>Passkeys rollout</li>
+            </ul>
+          </div>
+          <div class="theme-card">
+            <h3>Activation</h3>
+            <ul>
+              <li>Business Context Capture<span class="note">iOS + BE &middot; Android stretch</span></li>
+              <li>Domain offers for new users<span class="note">AND committed &middot; iOS stretch</span></li>
+            </ul>
+          </div>
+          <div class="theme-card">
+            <h3>Homefeed</h3>
+            <ul>
+              <li>Card feedback &amp; dismiss</li>
+              <li>More Recommendation Cards<span class="note">Mostly BE</span></li>
+            </ul>
+          </div>
+          <div class="theme-card">
+            <h3>Nav / IA</h3>
+            <ul>
+              <li>Airo entry points</li>
+              <li>Settings revamp</li>
+            </ul>
+          </div>
+          <div class="theme-card">
+            <h3>Braze / ratings</h3>
+            <ul>
+              <li>Happy-or-not</li>
+              <li>Error survey<span class="note">Conditional</span></li>
+              <li>This or That</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 7 -->
+    <section class="slide" data-section="Theme 1 &middot; Acquisition placements">
+      <div class="slide-inner">
+        <div class="eyebrow">Theme 1</div>
+        <h1 class="slide-title">Acquisition placements</h1>
+        <div class="initiatives-stack"><div class="table-wrap"><div class="table-card"><table class="init-table">
+          <colgroup><col class="col-num"><col class="col-name"><col class="col-what"><col class="col-metric"><col class="col-tail"></colgroup>
+          <thead><tr><th>#</th><th>Initiative</th><th>What</th><th>Primary metric</th><th>Status</th></tr></thead>
+          <tbody>
+            <tr>
+              <td class="num-col">01</td>
+              <td>Disable-auto-renew HRA nudge</td>
+              <td>Install nudge on the disable-auto-renew HRA flow, reusing the registrant-change placement pattern (~39K users/30 days).</td>
+              <td class="metric-col">Attributed installs</td>
+              <td class="est-col">Aligned, not started &middot; primary case &middot; 6.5K&ndash;7.0K Q4</td>
+            </tr>
+            <tr>
+              <td class="num-col">02</td>
+              <td>Nameserver-change HRA nudge</td>
+              <td>Same reusable HRA install pattern on the nameserver-change flow (comparable high volume).</td>
+              <td class="metric-col">Attributed installs</td>
+              <td class="est-col">Aligned, not started &middot; primary case &middot; 5.6K&ndash;6.0K Q4</td>
+            </tr>
+            <tr>
+              <td class="num-col">03</td>
+              <td>Productivity banner</td>
+              <td>Contextual AppsFlyer-backed install banner on a high-intent productivity surface.</td>
+              <td class="metric-col">Attributed installs</td>
+              <td class="est-col">Pending alignment &middot; provisionally included &middot; ~2.5K Q4</td>
+            </tr>
+            <tr>
+              <td class="num-col">04</td>
+              <td>WAM Editor AppsFlyer banner</td>
+              <td>Contextual AppsFlyer install banner inside the WAM Editor while customers are already building.</td>
+              <td class="metric-col">Attributed installs</td>
+              <td class="est-col">Pending alignment &middot; additional upside &middot; TBD</td>
+            </tr>
+            <tr>
+              <td class="num-col">05</td>
+              <td>Mobile-web interstitial</td>
+              <td>Exploratory interstitial on mobile web that sends users to App Store / Play. Co-owned with Tristan Krause.</td>
+              <td class="metric-col">Attributed installs</td>
+              <td class="est-col">Pending alignment &middot; exploratory only &middot; 10K&ndash;25K</td>
+            </tr>
+            <tr>
+              <td class="num-col">06</td>
+              <td>AAB site post-publish MFA app nudge</td>
+              <td>Idea-stage install / MFA nudge after a site is published in AAB. AAB owner TBD; not in the committed install model yet.</td>
+              <td class="metric-col">&mdash;</td>
+              <td class="est-col">Idea, pending AAB alignment &middot; unsized &middot; not included</td>
+            </tr>
+            <tr>
+              <td class="num-col">07</td>
+              <td>Contextual site notifications</td>
+              <td>Notification-driven install nudge tied to contextual site events (partner-aligned surfaces).</td>
+              <td class="metric-col">Attributed installs</td>
+              <td class="est-col">Pending partner alignment &middot; not included &middot; 3K&ndash;9K</td>
+            </tr>
+            <tr>
+              <td class="num-col">08</td>
+              <td>LoginPIN messaging</td>
+              <td>Messaging nudge tied to LoginPIN moments. Depends on SSO alignment; secondary upside.</td>
+              <td class="metric-col">Attributed installs</td>
+              <td class="est-col">Pending SSO alignment &middot; secondary &middot; not included &middot; ~3.2K at 5% lift</td>
+            </tr>
+          </tbody>
+        </table></div></div></div>
+      </div>
+    </section>
+
+    <!-- 8 -->
+    <section class="slide" data-section="Theme 2 &middot; Passkeys">
+      <div class="slide-inner">
+        <div class="eyebrow">Theme 2</div>
+        <h1 class="slide-title">Passkeys</h1>
+        <p class="slide-sub">One initiative this quarter: keep rolling out passkeys.</p>
+        <div class="initiatives-stack"><div class="table-wrap"><div class="table-card"><table class="init-table">
+          <colgroup><col class="col-num"><col class="col-name"><col class="col-what"><col class="col-metric"><col class="col-tail"></colgroup>
+          <thead><tr><th>#</th><th>Initiative</th><th>What</th><th>Primary metric</th><th>Status</th></tr></thead>
+          <tbody>
+            <tr>
+              <td class="num-col">01</td>
+              <td>Passkeys rollout (continued from Q3)</td>
+              <td>Continue passkey enrollment and sign-in on iOS &amp; Android so customers can replace password / MFA friction at login. Rollout continues from Q3; tune based on experiment results and SSO / Security collaboration.</td>
+              <td class="metric-col">Enrollment rate, auth success rate</td>
+              <td class="est-col">Committed &middot; enrollment rollout continuing</td>
+            </tr>
+          </tbody>
+        </table></div></div></div>
+      </div>
+    </section>
+
+    <!-- 9 -->
+    <section class="slide" data-section="Theme 3 &middot; New users">
+      <div class="slide-inner">
+        <div class="eyebrow">Theme 3 &middot; Activation</div>
+        <h1 class="slide-title">New users</h1>
+        <p class="slide-sub">Activation-led. Domain offer may render on Homefeed; ownership stays here.</p>
+        <div class="initiatives-stack"><div class="table-wrap"><div class="table-card"><table class="init-table">
+          <colgroup><col class="col-num"><col class="col-name"><col class="col-what"><col class="col-metric"><col class="col-tail"></colgroup>
+          <thead><tr><th>#</th><th>Initiative</th><th>What</th><th>Primary metric</th><th>Status &middot; estimate (BE/iOS/AND)</th></tr></thead>
+          <tbody>
+            <tr>
+              <td class="num-col">01</td>
+              <td>Business Context Capture (BCC)</td>
+              <td>Capture business name + category early so Logo, Brand Kit, and Domains can personalize. Capture may start on Homefeed; value lands in those products. ~95% of new users have no Brand Kit today. ~30K new users/mo.</td>
+              <td class="metric-col">Capture completion, D0 activation</td>
+              <td class="est-col">P0 &middot; iOS + BE committed &middot; Android stretch &middot; XS/XS</td>
+            </tr>
+            <tr>
+              <td class="num-col">02</td>
+              <td>Domain offers for new users on Homefeed</td>
+              <td>Show a domain offer on Homefeed for new users who do not own a domain yet. Homefeed is the surface; Activation owns the offer and attach path.</td>
+              <td class="metric-col">Offer CTR, domain attach rate</td>
+              <td class="est-col">AND committed &middot; iOS stretch &middot; not sized</td>
+            </tr>
+          </tbody>
+        </table></div></div></div>
+      </div>
+    </section>
+
+    <!-- 10 -->
+    <section class="slide" data-section="Theme 4 &middot; Homefeed">
+      <div class="slide-inner" style="max-width:1400px;">
+        <div class="eyebrow">Theme 4</div>
+        <h1 class="slide-title">Homefeed</h1>
+        <p class="slide-sub">True Homefeed load this quarter is small: one client initiative, plus a BE-led recommendation card portfolio.</p>
+        <div class="initiatives-stack"><div class="table-wrap"><div class="table-card"><table class="init-table">
+          <colgroup><col class="col-num"><col class="col-name"><col class="col-what"><col class="col-metric"><col class="col-tail"></colgroup>
+          <thead><tr><th>#</th><th>Initiative</th><th>What</th><th>Primary metric</th><th>Status &middot; estimate (BE/iOS/AND)</th></tr></thead>
+          <tbody>
+            <tr>
+              <td class="num-col">01</td>
+              <td>Card feedback &amp; dismiss controls</td>
+              <td>On AI Recommendations only: mark not useful, hide with Undo, suppress that idea for the customer + venture for 30 days. Log the action. No ranking change in V1. Priority Cards and Venture Home out of scope. ~235&ndash;266K Homefeed MAU; epic GDST-20206.</td>
+              <td class="metric-col">Repeat-impression-after-feedback</td>
+              <td class="est-col">V1 locked &middot; XS/S/S (75%)</td>
+            </tr>
+            <tr>
+              <td class="num-col">02</td>
+              <td>More Recommendation Cards</td>
+              <td>Grow Homefeed Recommendations with venture-aware personalization (business name, Brand Kit, domain state) plus new RAD cards for setup and domain monetization. Priority pack: personalized Logo, Brand Kit, and Airo credits; exact-match .com with 3yr offer for non-.com owners; exact-match alt TLD recommendations for .com owners; website contact info; Conversations telephony setup; Marketing calendar; AI promo post; Passkeys; Inbox social connect.</td>
+              <td class="metric-col">Homefeed CTR</td>
+              <td class="est-col">Being sized &middot; mostly BE (existing client chrome) &middot; epic GDST-20542</td>
+            </tr>
+          </tbody>
+        </table></div></div></div>
+      </div>
+    </section>
+
+    <!-- 11 -->
+    <section class="slide" data-section="Theme 5 &middot; Nav / IA">
+      <div class="slide-inner">
+        <div class="eyebrow">Theme 5</div>
+        <h1 class="slide-title">Nav / IA</h1>
+        <p class="slide-sub">Separate from Homefeed ranking and card work. Airo entry points may appear on Homefeed, but the change is navigation / IA.</p>
+        <div class="initiatives-stack"><div class="table-wrap"><div class="table-card"><table class="init-table">
+          <colgroup><col class="col-num"><col class="col-name"><col class="col-what"><col class="col-metric"><col class="col-tail"></colgroup>
+          <thead><tr><th>#</th><th>Initiative</th><th>What</th><th>Primary metric</th><th>Status &middot; estimate (BE/iOS/AND)</th></tr></thead>
+          <tbody>
+            <tr>
+              <td class="num-col">01</td>
+              <td>Airo entry points</td>
+              <td>Add Airo into Quick Actions and the Action Sheet so customers can start Airo without hunting for it. Shared Homefeed / nav surface; not feed ranking work.</td>
+              <td class="metric-col">Airo entry CTR / starts</td>
+              <td class="est-col">Committed</td>
+            </tr>
+            <tr>
+              <td class="num-col">02</td>
+              <td>Settings revamp</td>
+              <td>Reorganize Profile Settings so destinations (Your products) and real settings are skimmable: clearer account card, venture switcher, preferences, support, and About. No new capabilities; regroup + findability. ~118K Profile Settings uniques / 4wk (~33&ndash;35K weekly); 25% open Venture Switcher (11% complete a switch); My Products heavily used by free / unsubscribed users (~45K taps vs ~0.6K paid).</td>
+              <td class="metric-col">Settings findability, task success, destination arrivals</td>
+              <td class="est-col">Committed &middot; iOS S, AND M &middot; Manage Hub dependency watch</td>
+            </tr>
+          </tbody>
+        </table></div></div></div>
+      </div>
+    </section>
+
+    <!-- 12 -->
+    <section class="slide" data-section="Theme 6 &middot; Ratings &amp; feedback">
+      <div class="slide-inner">
+        <div class="eyebrow">Theme 6 &middot; Braze-led &middot; minimal client</div>
+        <h1 class="slide-title">Ratings &amp; feedback</h1>
+        <p class="slide-sub">Campaign / IAM work via Braze. Not Homefeed product build.</p>
+        <div class="initiatives-stack"><div class="table-wrap"><div class="table-card"><table class="init-table">
+          <colgroup><col class="col-num"><col class="col-name"><col class="col-what"><col class="col-metric"><col class="col-tail"></colgroup>
+          <thead><tr><th>#</th><th>Initiative</th><th>What</th><th>Primary metric</th><th>Status</th></tr></thead>
+          <tbody>
+            <tr>
+              <td class="num-col">01</td>
+              <td>Braze happiness check on high-traffic events</td>
+              <td>After a high-traffic success moment (e.g. JTBD completion): ask &ldquo;Are you happy?&rdquo; Yes routes to a Store rating prompt; no routes to an in-app feedback survey instead of the Store.</td>
+              <td class="metric-col">Happy rate, rating CTR (yes-path), survey completion (no-path)</td>
+              <td class="est-col">Committed &middot; not sized</td>
+            </tr>
+            <tr>
+              <td class="num-col">02</td>
+              <td>Feedback survey prompts on error events (via Braze)</td>
+              <td>After a user-facing error (e.g. RBG failure): Braze IAM asks for details now, or reminds them to finish later from Settings.</td>
+              <td class="metric-col">Feedback completion rate</td>
+              <td class="est-col">Conditional &middot; not sized</td>
+            </tr>
+            <tr>
+              <td class="num-col">03</td>
+              <td>This or That (via Braze)</td>
+              <td>Daily gut-pick A/B card for week-one users via Braze: instant preference insight, then a soft nudge into a real JTBD. Campaign / IAM, not Homefeed product build.</td>
+              <td class="metric-col">Early D7 return vs. control</td>
+              <td class="est-col">Committed &middot; Services M, iOS/AND TBD</td>
+            </tr>
+          </tbody>
+        </table></div></div></div>
+      </div>
+    </section>
+
+    <!-- 13 -->
+    <section class="slide" data-section="Stretch">
+      <div class="slide-inner" style="max-width:1400px;">
+        <div class="eyebrow">If capacity allows</div>
+        <h1 class="slide-title">Stretch initiatives</h1>
+        <p class="slide-sub">Not committed. Kept off the theme slides so committed Homefeed / Nav / Activation load stays clear.</p>
+        <div class="initiatives-stack"><div class="table-wrap"><div class="table-card"><table class="init-table">
+          <colgroup><col class="col-num"><col class="col-name"><col class="col-what"><col class="col-metric"><col class="col-tail"></colgroup>
+          <thead><tr><th>#</th><th>Initiative</th><th>What</th><th>Primary metric</th><th>Status &middot; estimate (BE/iOS/AND)</th></tr></thead>
+          <tbody>
+            <tr>
+              <td class="num-col">01</td>
+              <td>Guided Exploration on Homefeed</td>
+              <td>Below Priority Cards, show up to 3 outcome-based next actions built from what the user already owns. Helps new / early users pick a first meaningful setup without competing with Priority Cards.</td>
+              <td class="metric-col">7d completion of a suggested setup</td>
+              <td class="est-col">Stretch &middot; M(+)/S/M</td>
+            </tr>
+            <tr>
+              <td class="num-col">02</td>
+              <td>Peer Benchmark Insights</td>
+              <td>Show how a venture&rsquo;s visitors / early progress compares to similar businesses (or what top peers achieve), so Homefeed feels less like a task list and more like useful context. Needs Ian &amp; Tom alignment.</td>
+              <td class="metric-col">Insight impression &rarr; tap</td>
+              <td class="est-col">Stretch &middot; XS/S/M</td>
+            </tr>
+            <tr>
+              <td class="num-col">03</td>
+              <td>Weekly Wins</td>
+              <td>Celebrate recent progress on Homefeed (positive BRISC swings + RAD milestones like first site published / first post), with one clear next step. ~197K app users with W+M / 30d are BRISC-eligible; actual weekly win volume is a subset.</td>
+              <td class="metric-col">Entry CTR, story completion rate</td>
+              <td class="est-col">Stretch &middot; S/M(85%)/M(80%)</td>
+            </tr>
+            <tr>
+              <td class="num-col">04</td>
+              <td>"Continue your work"</td>
+              <td>Hero-style resume card with the real thumbnail of the customer&rsquo;s last unfinished project, draft post, or site. ~25&ndash;30K unfinished users/mo.</td>
+              <td class="metric-col">Continue CTR vs. generic reco</td>
+              <td class="est-col">Stretch &middot; M/XS/XS</td>
+            </tr>
+            <tr>
+              <td class="num-col">05</td>
+              <td>Voice Shortcuts (iOS / Android)</td>
+              <td>Voice-triggered shortcut into a first app action (e.g. a canned &ldquo;running late&rdquo; message), lowering the cost of starting a JTBD from the OS assistant.</td>
+              <td class="metric-col">Shortcut usage</td>
+              <td class="est-col">Stretch &middot; iOS S (80%), AND S (50%)</td>
+            </tr>
+          </tbody>
+        </table></div></div></div>
+      </div>
+    </section>
+
+    <!-- 14 -->
+    <section class="slide" data-section="Closing">
+      <div class="slide-inner">
+        <div class="closing">
+          <div class="badge">Q4 2026 &middot; Vanguard &#128737;</div>
+          <div class="mega">Thank you</div>
+          <div class="meta">GoDaddy App Squad</div>
+          <p class="wish">May Passkeys ship clean, our dependencies stay out of the way, and Q4&rsquo;s numbers land exactly where the roadmap said they would.</p>
+        </div>
+      </div>
+    </section>
+
+  </div>
+
+  <div class="bottombar">
+    <div class="section-label">Section: <b id="section-label-text">Cover</b></div>
+    <div class="navcluster">
+      <button class="navbtn" id="prev" aria-label="Previous slide">&#8592;</button>
+      <span class="counter" id="counter">01 / 17</span>
+      <button class="navbtn" id="next" aria-label="Next slide">&#8594;</button>
+    </div>
+  </div>
+</div>
+
+<script>
+  const slides = Array.from(document.querySelectorAll('.slide'));
+  const total = slides.length;
+  let idx = 0;
+
+  const progress = document.getElementById('progress');
+  const counter = document.getElementById('counter');
+  const sectionTag = document.getElementById('section-tag');
+  const sectionLabelText = document.getElementById('section-label-text');
+  const prevBtn = document.getElementById('prev');
+  const nextBtn = document.getElementById('next');
+
+  function pad(n){ return String(n).padStart(2,'0'); }
+
+  function render(){
+    slides.forEach((s,i)=> s.classList.toggle('active', i===idx));
+    progress.style.width = ((idx+1)/total*100) + '%';
+    counter.textContent = pad(idx+1) + ' / ' + pad(total);
+    const label = slides[idx].dataset.section || '';
+    sectionTag.textContent = label;
+    sectionLabelText.textContent = label;
+    prevBtn.disabled = idx===0;
+    nextBtn.disabled = idx===total-1;
+  }
+
+  function go(delta){
+    idx = Math.min(total-1, Math.max(0, idx+delta));
+    render();
+  }
+
+  prevBtn.addEventListener('click', ()=>go(-1));
+  nextBtn.addEventListener('click', ()=>go(1));
+
+  window.addEventListener('keydown', (e)=>{
+    if(e.key==='ArrowRight' || e.key===' '){ go(1); e.preventDefault(); }
+    else if(e.key==='ArrowLeft'){ go(-1); e.preventDefault(); }
+    else if(e.key==='Home'){ idx=0; render(); }
+    else if(e.key==='End'){ idx=total-1; render(); }
+  });
+
+  render();
+</script>
+</body>
+</html>

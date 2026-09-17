@@ -1,0 +1,5 @@
+.vercel
+.env*
+photos/*.b64
+photos/small_*
+.DS_Store
