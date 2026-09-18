@@ -926,7 +926,7 @@
             </div>
             <div class="content-card highlight">
               <div class="card-title">Nav / IA + Braze</div>
-              <div class="card-body">Settings and Airo entry points fix findability. Ratings / feedback via Braze protects Store quality with minimal client.</div>
+              <div class="card-body">My Business mega nav and Airo entry points fix findability. Ratings / feedback via Braze protects Store quality with minimal client.</div>
             </div>
           </div>
           <div class="wl-column">
@@ -937,7 +937,7 @@
             </div>
             <div class="content-card">
               <div class="card-title">Dependencies we are managing</div>
-              <div class="card-body">SSO / Security (Passkeys), Braze (ratings), BRISC / BPP (rec cards, wins), Manage Hub (Settings), partner surfaces (acquisition).</div>
+              <div class="card-body">SSO / Security (Passkeys), Braze (ratings), BRISC / BPP (rec cards, wins), partner surfaces (acquisition). Settings stretch watches Manage Hub.</div>
             </div>
           </div>
         </div>
@@ -975,7 +975,7 @@
             <h3>Nav / IA</h3>
             <ul>
               <li>Airo entry points</li>
-              <li>Settings revamp</li>
+              <li>My Business mega nav<span class="note">Sizing TBD</span></li>
             </ul>
           </div>
           <div class="theme-card">
@@ -1145,7 +1145,7 @@
       <div class="slide-inner">
         <div class="eyebrow">Theme 5</div>
         <h1 class="slide-title">Nav / IA</h1>
-        <p class="slide-sub">Findability and entry points, separate from Homefeed ranking. Settings is a high-intent hub (~118K Profile visitors / 4wk).</p>
+        <p class="slide-sub">Findability and entry points, separate from Homefeed ranking. Mega nav puts My Business on the bar; Settings revamp moves to stretch.</p>
         <div class="initiatives-stack"><div class="table-wrap"><div class="table-card"><table class="init-table">
           <colgroup><col class="col-num"><col class="col-name"><col class="col-what"><col class="col-metric"><col class="col-tail"></colgroup>
           <thead><tr><th>#</th><th>Initiative</th><th>What</th><th>Primary metric</th><th>Status &middot; estimate (BE/iOS/AND)</th></tr></thead>
@@ -1159,10 +1159,10 @@
             </tr>
             <tr>
               <td class="num-col">02</td>
-              <td>Settings revamp</td>
-              <td>Reorganize Profile Settings so destinations (Your products) and real settings are skimmable: clearer account card, venture switcher, preferences, support, and About. No new capabilities; regroup + findability. ~118K Profile Settings uniques / 4wk (~33&ndash;35K weekly); 25% open Venture Switcher (11% complete a switch); My Products heavily used by free / unsubscribed users (~45K taps vs ~0.6K paid).</td>
-              <td class="metric-col">Settings findability, task success, destination arrivals</td>
-              <td class="est-col">Committed &middot; iOS S, AND M &middot; Manage Hub dependency watch</td>
+              <td>My Business mega nav</td>
+              <td>Put My Business on the bottom nav as the far-right tab (Marketing out). Treatment: Home · Conversations · Sites · Domains · My Business. Gateway shell + new-user orientation / existing-user coach mark. Separate new vs existing app-signup experiments. UX: GDST-20640 (Kaveen) · Eng: GDST-20638 / GDST-20637 · Spikes: GDST-20628 / GDST-20629.</td>
+              <td class="metric-col">JTBD starts from My Business; D0/D7 creation (new); creation / reviews guardrails (existing)</td>
+              <td class="est-col">Committed &middot; sizing TBD</td>
             </tr>
           </tbody>
         </table></div></div></div>
@@ -1217,34 +1217,41 @@
           <tbody>
             <tr>
               <td class="num-col">01</td>
+              <td>Settings revamp</td>
+              <td>Reorganize Profile Settings so destinations (Your products) and real settings are skimmable: clearer account card, venture switcher, preferences, support, and About. No new capabilities; regroup + findability. ~118K Profile Settings uniques / 4wk (~33&ndash;35K weekly); 25% open Venture Switcher (11% complete a switch); My Products heavily used by free / unsubscribed users (~45K taps vs ~0.6K paid).</td>
+              <td class="metric-col">Settings findability, task success, destination arrivals</td>
+              <td class="est-col">Stretch &middot; iOS S, AND M &middot; Manage Hub dependency watch</td>
+            </tr>
+            <tr>
+              <td class="num-col">02</td>
               <td>Guided Exploration on Homefeed</td>
               <td>Below Priority Cards, show up to 3 outcome-based next actions built from what the user already owns. Helps new / early users pick a first meaningful setup without competing with Priority Cards.</td>
               <td class="metric-col">7d completion of a suggested setup</td>
               <td class="est-col">Stretch &middot; M(+)/S/M</td>
             </tr>
             <tr>
-              <td class="num-col">02</td>
+              <td class="num-col">03</td>
               <td>Peer Benchmark Insights</td>
               <td>Show how a venture&rsquo;s visitors / early progress compares to similar businesses (or what top peers achieve), so Homefeed feels less like a task list and more like useful context.</td>
               <td class="metric-col">Insight impression &rarr; tap</td>
               <td class="est-col">Stretch &middot; XS/S/M</td>
             </tr>
             <tr>
-              <td class="num-col">03</td>
+              <td class="num-col">04</td>
               <td>Weekly Wins</td>
               <td>Celebrate recent progress on Homefeed (positive BRISC swings + RAD milestones like first site published / first post), with one clear next step. ~197K app users with W+M / 30d are BRISC-eligible; actual weekly win volume is a subset.</td>
               <td class="metric-col">Entry CTR, story completion rate</td>
               <td class="est-col">Stretch &middot; S/M(85%)/M(80%)</td>
             </tr>
             <tr>
-              <td class="num-col">04</td>
+              <td class="num-col">05</td>
               <td>"Continue your work"</td>
               <td>Hero-style resume card with the real thumbnail of the customer&rsquo;s last unfinished project, draft post, or site. ~25&ndash;30K unfinished users/mo.</td>
               <td class="metric-col">Continue CTR vs. generic reco</td>
               <td class="est-col">Stretch &middot; M/XS/XS</td>
             </tr>
             <tr>
-              <td class="num-col">05</td>
+              <td class="num-col">06</td>
               <td>Voice Shortcuts (iOS / Android)</td>
               <td>Voice-triggered shortcut into a first app action (e.g. a canned &ldquo;running late&rdquo; message), lowering the cost of starting a JTBD from the OS assistant.</td>
               <td class="metric-col">Shortcut usage</td>
