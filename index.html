@@ -600,6 +600,12 @@
   .content-card .card-title{font-size:1.04rem;color:var(--text);font-weight:600;margin-bottom:5px;}
   .content-card .card-body{font-size:.94rem;color:var(--soft);line-height:1.52;}
   .wl-opportunity{margin-top:14px;padding-top:14px;border-top:1px solid var(--border);}
+  .hl-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:18px;}
+  .hl-grid .content-card{padding:22px 24px;min-height:148px;display:flex;flex-direction:column;justify-content:center;}
+  .hl-grid .content-card .card-title{font-size:1.12rem;margin-bottom:8px;}
+  .hl-grid .content-card .card-body{font-size:.98rem;line-height:1.55;}
+  .hl-grid.single{grid-template-columns:1fr 1fr;max-width:100%;}
+  .hl-grid.single .content-card{min-height:180px;padding:28px 30px;}
 
   .shipped-stack{display:flex;flex-direction:column;gap:14px;margin-top:10px;}
   .shipped-hero{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;}
@@ -623,7 +629,7 @@
   .chip.dev{background:#fbbf2414;color:#fcd34d;border-color:#fbbf2438;}
 
   @media (max-width: 880px){
-    .shipped-hero,.shipped-groups{grid-template-columns:1fr;}
+    .shipped-hero,.shipped-groups,.hl-grid,.hl-grid.single{grid-template-columns:1fr;}
     .cols-2,.cols-3,.cols-4{grid-template-columns:1fr;}
     .two-col{grid-template-columns:1fr;}
   }
@@ -781,39 +787,45 @@
 
     <!-- 2c -->
     <section class="slide" data-section="Highlights">
-      <div class="slide-inner">
+      <div class="slide-inner" style="max-width:1400px;">
         <div class="eyebrow">Q3 2026 &middot; Review</div>
         <h1 class="slide-title">Highlights</h1>
-        <div class="wl-columns">
-          <div class="wl-column">
-            <div class="wl-col-label wins">Wins</div>
-            <div class="content-card highlight">
-              <div class="card-title">Installs kept climbing</div>
-              <div class="card-body">199K in September, up from 170K in July. 454K Q3 TD (Sep 15), tracking to 520K EoQ. Placement wins compounding: VH &amp; My Products banners, DCC banner, DOP HRA (registrant change live; more in flight).</div>
-            </div>
-            <div class="content-card highlight">
-              <div class="card-title">Homefeed ramping up</div>
-              <div class="card-body">Analytics shelf, more Quick Actions for key jobs, Priority Cards for txn failure + negative swings, and recommendation cards for Sites publish nudge + Site QR. Increasing focus on this space going forward.</div>
-            </div>
-            <div class="content-card highlight">
-              <div class="card-title">MFA success, target beaten</div>
-              <div class="card-body">&gt;50% vs. a 45% target, up from ~30% in Q2. Clearest auth-friction win this year.</div>
-            </div>
-            <div class="content-card highlight">
-              <div class="card-title">CCE overachievement</div>
-              <div class="card-body">12 controlled concluded experiments vs. a target of 7 (+71%), plus 4 running and 8 queued.</div>
-            </div>
+        <p class="slide-sub">What moved this quarter. Installs, Homefeed, auth, and experiment throughput.</p>
+        <div class="hl-grid">
+          <div class="content-card highlight">
+            <div class="card-title">Installs kept climbing</div>
+            <div class="card-body">199K in September, up from 170K in July. 454K Q3 TD (Sep 15), tracking to 520K EoQ. Placement wins compounding: VH &amp; My Products banners, DCC banner, DOP HRA (registrant change live; more in flight).</div>
           </div>
-          <div class="wl-column">
-            <div class="wl-col-label learnings">Learnings</div>
-            <div class="content-card">
-              <div class="card-title">Android installs undercounted</div>
-              <div class="card-body">Tracking bug masked real Android volume early in the quarter. Fixed; true installs were higher than first reported.</div>
-            </div>
-            <div class="content-card">
-              <div class="card-title">Passkeys need tighter partners</div>
-              <div class="card-body">SSO (Tap to Approve) and Security collaboration has to scale with Passkeys, not trail it.</div>
-            </div>
+          <div class="content-card highlight">
+            <div class="card-title">Homefeed ramping up</div>
+            <div class="card-body">Analytics shelf, more Quick Actions for key jobs, Priority Cards for txn failure + negative swings, and recommendation cards for Sites publish nudge + Site QR. Increasing focus on this space going forward.</div>
+          </div>
+          <div class="content-card highlight">
+            <div class="card-title">MFA success, target beaten</div>
+            <div class="card-body">&gt;50% vs. a 45% target, up from ~30% in Q2. Clearest auth-friction win this year.</div>
+          </div>
+          <div class="content-card highlight">
+            <div class="card-title">CCE overachievement</div>
+            <div class="card-body">12 controlled concluded experiments vs. a target of 7 (+71%), plus 4 running and 8 queued.</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 2c2 -->
+    <section class="slide" data-section="Learnings">
+      <div class="slide-inner" style="max-width:1400px;">
+        <div class="eyebrow">Q3 2026 &middot; Review</div>
+        <h1 class="slide-title">Learnings</h1>
+        <p class="slide-sub">What we&rsquo;ll carry into Q4: cleaner measurement, tighter partner loops.</p>
+        <div class="hl-grid single">
+          <div class="content-card">
+            <div class="card-title">Android installs undercounted</div>
+            <div class="card-body">Tracking bug masked real Android volume early in the quarter. Fixed; true installs were higher than first reported.</div>
+          </div>
+          <div class="content-card">
+            <div class="card-title">Passkeys need tighter partners</div>
+            <div class="card-body">SSO (Tap to Approve) and Security collaboration has to scale with Passkeys, not trail it.</div>
           </div>
         </div>
       </div>
