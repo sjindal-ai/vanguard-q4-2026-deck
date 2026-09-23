@@ -651,9 +651,60 @@
   @media (prefers-reduced-motion: reduce){
     .slide, .progress-fill{transition:none;}
   }
+
+  .gate{
+    position:fixed;inset:0;z-index:100;
+    display:flex;align-items:center;justify-content:center;
+    padding:24px;
+    background:
+      radial-gradient(circle 900px at 12% 8%, rgba(45,212,191,.13), transparent 60%),
+      radial-gradient(circle 1000px at 22% 78%, rgba(251,191,36,.10), transparent 62%),
+      var(--bg);
+  }
+  .gate-card{
+    width:100%;max-width:380px;
+    padding:28px 28px 24px;
+    border:1px solid var(--border);
+    border-radius:16px;
+    background:rgba(18,18,18,.92);
+    box-shadow:0 24px 60px rgba(0,0,0,.45);
+  }
+  .gate-card .eyebrow{margin-bottom:10px;}
+  .gate-card h1{
+    font-size:1.45rem;font-weight:650;letter-spacing:-.02em;margin-bottom:8px;
+  }
+  .gate-card p{font-size:.92rem;color:var(--soft);line-height:1.45;margin-bottom:18px;}
+  .gate-card form{display:flex;flex-direction:column;gap:10px;}
+  .gate-card input{
+    width:100%;padding:12px 14px;border-radius:10px;
+    border:1px solid var(--border);background:var(--surface-2);color:var(--text);
+    font:inherit;font-size:.95rem;outline:none;
+  }
+  .gate-card input:focus{border-color:var(--accent-line);box-shadow:0 0 0 3px var(--accent-soft);}
+  .gate-card button{
+    padding:12px 14px;border-radius:10px;border:0;
+    background:var(--accent);color:#041411;font:inherit;font-weight:650;
+    cursor:pointer;
+  }
+  .gate-card button:hover{filter:brightness(1.05);}
+  .gate-error{min-height:1.2em;font-size:.82rem;color:var(--red);}
+  body.locked .deck{visibility:hidden;pointer-events:none;}
+  body:not(.locked) .gate{display:none;}
 </style>
 </head>
-<body>
+<body class="locked">
+<div class="gate" id="gate" role="dialog" aria-modal="true" aria-labelledby="gate-title">
+  <div class="gate-card">
+    <div class="eyebrow">Vanguard &middot; Q4 2026</div>
+    <h1 id="gate-title">Password required</h1>
+    <p>This deck is private. Enter the password to continue.</p>
+    <form id="gate-form" autocomplete="current-password">
+      <input id="gate-input" type="password" name="password" placeholder="Password" autofocus required>
+      <button type="submit">Open deck</button>
+      <div class="gate-error" id="gate-error" aria-live="polite"></div>
+    </form>
+  </div>
+</div>
 <div class="deck">
   <div class="topbar">
     <div class="wordmark">Vanguard <b>&middot; Q4 2026 Roadmap</b></div>
@@ -1304,6 +1355,40 @@
 </div>
 
 <script>
+  const GATE_KEY = 'vg-q4-deck-unlocked';
+  const GATE_HASH = '3df83525ab3bb9872663087a96fae25c4c24438d5b949ec6f3597e7008db5493';
+
+  async function sha256(text){
+    const buf = await crypto.subtle.digest('SHA-256', new TextEncoder().encode(text));
+    return Array.from(new Uint8Array(buf)).map(b=>b.toString(16).padStart(2,'0')).join('');
+  }
+
+  function unlockDeck(){
+    document.body.classList.remove('locked');
+    sessionStorage.setItem(GATE_KEY, '1');
+  }
+
+  const gateForm = document.getElementById('gate-form');
+  const gateInput = document.getElementById('gate-input');
+  const gateError = document.getElementById('gate-error');
+
+  if(sessionStorage.getItem(GATE_KEY) === '1'){
+    unlockDeck();
+  }
+
+  gateForm.addEventListener('submit', async (e)=>{
+    e.preventDefault();
+    gateError.textContent = '';
+    const hash = await sha256(gateInput.value.trim());
+    if(hash === GATE_HASH){
+      unlockDeck();
+      render();
+    } else {
+      gateError.textContent = 'Wrong password. Try again.';
+      gateInput.select();
+    }
+  });
+
   const slides = Array.from(document.querySelectorAll('.slide'));
   const total = slides.length;
   let idx = 0;
@@ -1329,6 +1414,7 @@
   }
 
   function go(delta){
+    if(document.body.classList.contains('locked')) return;
     idx = Math.min(total-1, Math.max(0, idx+delta));
     render();
   }
@@ -1337,6 +1423,9 @@
   nextBtn.addEventListener('click', ()=>go(1));
 
   window.addEventListener('keydown', (e)=>{
+    if(document.body.classList.contains('locked')) return;
+    const tag = (e.target && e.target.tagName) || '';
+    if(tag === 'INPUT' || tag === 'TEXTAREA') return;
     if(e.key==='ArrowRight' || e.key===' '){ go(1); e.preventDefault(); }
     else if(e.key==='ArrowLeft'){ go(-1); e.preventDefault(); }
     else if(e.key==='Home'){ idx=0; render(); }
