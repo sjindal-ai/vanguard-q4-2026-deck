@@ -968,6 +968,13 @@
         <p class="slide-sub">Committed load by lane. Homefeed is intentionally thin on client vs Nav / IA and Activation. Stretch is last.</p>
         <div class="theme-map">
           <div class="theme-card">
+            <h3>Nav / IA</h3>
+            <ul>
+              <li>Airo entry points</li>
+              <li>My Business mega nav<span class="note">Sizing TBD</span></li>
+            </ul>
+          </div>
+          <div class="theme-card">
             <h3>Auth</h3>
             <ul>
               <li>Passkeys rollout</li>
@@ -985,13 +992,6 @@
             <ul>
               <li>Card feedback &amp; dismiss</li>
               <li>More Recommendation Cards<span class="note">Mostly BE</span></li>
-            </ul>
-          </div>
-          <div class="theme-card">
-            <h3>Nav / IA</h3>
-            <ul>
-              <li>Airo entry points</li>
-              <li>My Business mega nav<span class="note">Sizing TBD</span></li>
             </ul>
           </div>
           <div class="theme-card">
@@ -1085,9 +1085,38 @@
     </section>
 
     <!-- 8 -->
-    <section class="slide" data-section="Theme 2 &middot; Passkeys">
+    <section class="slide" data-section="Theme 2 &middot; Nav / IA">
       <div class="slide-inner">
         <div class="eyebrow">Theme 2</div>
+        <h1 class="slide-title">Nav / IA</h1>
+        <p class="slide-sub">Findability and entry points, separate from Homefeed ranking. Mega nav puts My Business on the bar; Settings revamp moves to stretch.</p>
+        <div class="initiatives-stack"><div class="table-wrap"><div class="table-card"><table class="init-table">
+          <colgroup><col class="col-num"><col class="col-name"><col class="col-what"><col class="col-metric"><col class="col-tail"></colgroup>
+          <thead><tr><th>#</th><th>Initiative</th><th>What</th><th>Primary metric</th><th>Status &middot; estimate (BE/iOS/AND)</th></tr></thead>
+          <tbody>
+            <tr>
+              <td class="num-col">01</td>
+              <td>Airo entry points</td>
+              <td>Add Airo into Quick Actions and the Action Sheet so customers can start Airo without hunting for it. Shared Homefeed / nav surface; not feed ranking work.</td>
+              <td class="metric-col">Airo entry CTR / starts</td>
+              <td class="est-col">Committed</td>
+            </tr>
+            <tr>
+              <td class="num-col">02</td>
+              <td>My Business mega nav</td>
+              <td>Put My Business on the bottom nav as the far-right tab (Marketing out). Treatment: Home · Conversations · Sites · Domains · My Business. Gateway shell + new-user orientation / existing-user coach mark. Separate new vs existing app-signup experiments. UX: GDST-20640 (Kaveen) · Eng: GDST-20638 / GDST-20637 · Spikes: GDST-20628 / GDST-20629.</td>
+              <td class="metric-col">JTBD starts from My Business; D0/D7 creation (new); creation / reviews guardrails (existing)</td>
+              <td class="est-col">Committed &middot; sizing TBD</td>
+            </tr>
+          </tbody>
+        </table></div></div></div>
+      </div>
+    </section>
+
+    <!-- 9 -->
+    <section class="slide" data-section="Theme 3 &middot; Passkeys">
+      <div class="slide-inner">
+        <div class="eyebrow">Theme 3</div>
         <h1 class="slide-title">Passkeys</h1>
         <p class="slide-sub">Continuation bet on auth friction. Moves Passkeys enrollment KR; depends on SSO / Security collaboration.</p>
         <div class="initiatives-stack"><div class="table-wrap"><div class="table-card"><table class="init-table">
@@ -1106,10 +1135,10 @@
       </div>
     </section>
 
-    <!-- 9 -->
-    <section class="slide" data-section="Theme 3 &middot; New users">
+    <!-- 10 -->
+    <section class="slide" data-section="Theme 4 &middot; New users">
       <div class="slide-inner">
-        <div class="eyebrow">Theme 3 &middot; Activation</div>
+        <div class="eyebrow">Theme 4 &middot; Activation</div>
         <h1 class="slide-title">New users</h1>
         <p class="slide-sub">Primary lever for D0 activation. Homefeed may be a surface; Activation owns the outcomes.</p>
         <div class="initiatives-stack"><div class="table-wrap"><div class="table-card"><table class="init-table">
@@ -1135,10 +1164,10 @@
       </div>
     </section>
 
-    <!-- 10 -->
-    <section class="slide" data-section="Theme 4 &middot; Homefeed">
+    <!-- 11 -->
+    <section class="slide" data-section="Theme 5 &middot; Homefeed">
       <div class="slide-inner" style="max-width:1400px;">
-        <div class="eyebrow">Theme 4</div>
+        <div class="eyebrow">Theme 5</div>
         <h1 class="slide-title">Homefeed</h1>
         <p class="slide-sub">Homefeed CTR bet with light client load: feedback quality on Recs, plus BE-led personalized RAD portfolio.</p>
         <div class="initiatives-stack"><div class="table-wrap"><div class="table-card"><table class="init-table">
@@ -1158,35 +1187,6 @@
               <td>Grow Homefeed Recommendations with venture-aware personalization (business name, Brand Kit, domain state) plus new RAD cards for setup and domain monetization. Priority pack: personalized Logo, Brand Kit, and Airo credits; exact-match .com with 3yr offer for non-.com owners; exact-match alt TLD recommendations for .com owners; website contact info; Conversations telephony setup; Marketing calendar; AI promo post; Passkeys; Inbox social connect.</td>
               <td class="metric-col">Homefeed CTR</td>
               <td class="est-col">Being sized &middot; mostly BE (existing client chrome) &middot; epic GDST-20542</td>
-            </tr>
-          </tbody>
-        </table></div></div></div>
-      </div>
-    </section>
-
-    <!-- 11 -->
-    <section class="slide" data-section="Theme 5 &middot; Nav / IA">
-      <div class="slide-inner">
-        <div class="eyebrow">Theme 5</div>
-        <h1 class="slide-title">Nav / IA</h1>
-        <p class="slide-sub">Findability and entry points, separate from Homefeed ranking. Mega nav puts My Business on the bar; Settings revamp moves to stretch.</p>
-        <div class="initiatives-stack"><div class="table-wrap"><div class="table-card"><table class="init-table">
-          <colgroup><col class="col-num"><col class="col-name"><col class="col-what"><col class="col-metric"><col class="col-tail"></colgroup>
-          <thead><tr><th>#</th><th>Initiative</th><th>What</th><th>Primary metric</th><th>Status &middot; estimate (BE/iOS/AND)</th></tr></thead>
-          <tbody>
-            <tr>
-              <td class="num-col">01</td>
-              <td>Airo entry points</td>
-              <td>Add Airo into Quick Actions and the Action Sheet so customers can start Airo without hunting for it. Shared Homefeed / nav surface; not feed ranking work.</td>
-              <td class="metric-col">Airo entry CTR / starts</td>
-              <td class="est-col">Committed</td>
-            </tr>
-            <tr>
-              <td class="num-col">02</td>
-              <td>My Business mega nav</td>
-              <td>Put My Business on the bottom nav as the far-right tab (Marketing out). Treatment: Home · Conversations · Sites · Domains · My Business. Gateway shell + new-user orientation / existing-user coach mark. Separate new vs existing app-signup experiments. UX: GDST-20640 (Kaveen) · Eng: GDST-20638 / GDST-20637 · Spikes: GDST-20628 / GDST-20629.</td>
-              <td class="metric-col">JTBD starts from My Business; D0/D7 creation (new); creation / reviews guardrails (existing)</td>
-              <td class="est-col">Committed &middot; sizing TBD</td>
             </tr>
           </tbody>
         </table></div></div></div>
