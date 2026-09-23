@@ -238,6 +238,23 @@
   .stat-value .unit{font-size:.55em;color:var(--soft);font-weight:500;margin-left:2px;}
   .stat-note{font-size:.84rem;color:var(--soft);line-height:1.45;}
   .stat-note.dim{color:var(--dim);}
+  .timeline-shot{
+    margin-top:14px;
+    border:1px solid var(--border);
+    border-radius:12px;
+    overflow:hidden;
+    background:var(--surface-1);
+    box-shadow:0 18px 50px rgba(0,0,0,.35);
+  }
+  .timeline-shot img{
+    display:block;
+    width:100%;
+    height:auto;
+    max-height:min(68vh,720px);
+    object-fit:contain;
+    object-position:top left;
+    background:#fff;
+  }
 
   .theme-card{
     background:var(--surface-1);
@@ -1254,6 +1271,18 @@
     </section>
 
     <!-- 14 -->
+    <section class="slide" data-section="Q4 timeline WIP">
+      <div class="slide-inner" style="max-width:1400px;">
+        <div class="eyebrow">WIP &middot; Sneak peek</div>
+        <h1 class="slide-title">Q4 plan timeline</h1>
+        <p class="slide-sub">Still in progress. Early look at how the quarter is shaping on the board (sprints, sequencing, dependencies).</p>
+        <div class="timeline-shot">
+          <img src="/photos/q4-plan-timeline.png" alt="Vanguard Q4 Plan Jira timeline, WIP sneak peek">
+        </div>
+      </div>
+    </section>
+
+    <!-- 15 -->
     <section class="slide" data-section="Closing">
       <div class="slide-inner">
         <div class="closing">
